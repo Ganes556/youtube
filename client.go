@@ -30,7 +30,7 @@ const ContentPlaybackNonceAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnop
 var ErrNoFormat = errors.New("no video format provided")
 
 // DefaultClient type to use. No reason to change but you could if you wanted to.
-var DefaultClient = AndroidClient
+var DefaultClient = AndroidVRClient
 
 // Client offers methods to download video metadata and video streams.
 type Client struct {
@@ -197,6 +197,16 @@ var (
 		// androidVersion removed to avoid PoToken requirement (android_sdkless variant)
 	}
 
+	// AndroidVRClient, download go brrrrrr.
+	AndroidVRClient = clientInfo{
+		name:      "ANDROID_VR",
+		version:   "1.71.26",
+		key:       "AIzaSyB-63vPrdThhKuerbB2N_l7Kwwcxj6yUAc",
+		userAgent: "com.google.android.apps.youtube.vr.oculus/1.71.26 (Linux; U; Android 12L; eureka-user Build/SQ3A.220605.009.A1) gzip",
+		deviceModel: "Quest 3",
+		// androidVersion removed to avoid PoToken requirement (android_sdkless variant)
+	}
+
 	// IOSClient Client based brrrr.
 	IOSClient = clientInfo{
 		name:        "IOS",
@@ -205,7 +215,7 @@ var (
 		userAgent:   "com.google.ios.youtube/19.45.4 (iPhone16,2; U; CPU iOS 18_1_0 like Mac OS X;)",
 		deviceModel: "iPhone16,2",
 	}
-
+	
 	// EmbeddedClient, not really tested.
 	EmbeddedClient = clientInfo{
 		name:      "WEB_EMBEDDED_PLAYER",
